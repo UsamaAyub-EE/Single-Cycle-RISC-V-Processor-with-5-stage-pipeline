@@ -84,7 +84,7 @@ extend ext_ins(.immext(s2_immext_in),.instr(instr),.immsrc(immsrc));
 
 adder pcplus4_ins(.a(s1_pc_in),.b(32'h4),.y(PCPlus4));
 
-mux2x1 pc_pcNext_ins(.sel(s2_PCSrc_out),.a(s3_ALU_Out_out),.b(PCPlus4),.o(PCNext));
+mux2x1 pc_pcNext_ins(.sel(s2_PCSrc_out),.a(s3_ALU_Out_in),.b(PCPlus4),.o(PCNext));
 
 mux2x1 rf_alu_pc(.sel(s2_PCSrc_out),.a(s2_pc_out),.b(s2_Port_A_out),.o(A));
 
@@ -438,55 +438,55 @@ module Instruction_Memory (input [31:0] pc,output reg [31:0] instruction);
 	always @(pc)
 	begin
 	   case(pc)
-	   32'h00: instruction = 32'h00002503;
-	   32'h04: instruction = 32'h00000033;
-	   32'h08: instruction = 32'h00000033;
-	   32'h0c: instruction = 32'h00000033;
-	   32'h10: instruction = 32'h00000033;
-	   32'h14: instruction = 32'h00000033;
-	   32'h18: instruction = 32'hfe0504e3;
-	   32'h1c: instruction = 32'h00102403;
-	   32'h20: instruction = 32'h00202483;
-	   32'h24: instruction = 32'h00000033;
-	   32'h28: instruction = 32'h00000033;
-	   32'h2c: instruction = 32'h00000033;
-	   32'h30: instruction = 32'h00000033;
-	   32'h34: instruction = 32'h00000033;
-	   32'h38: instruction = 32'h04940a63;
-	   32'h3c: instruction = 32'h00000033;
-	   32'h40: instruction = 32'h00000033;
-	   32'h44: instruction = 32'h00000033;
-	   32'h48: instruction = 32'h00000033;
-	   32'h4c: instruction = 32'h00000033;
-	   32'h50: instruction = 32'h02944a63;
-	   32'h54: instruction = 32'h00000033;
-	   32'h58: instruction = 32'h00000033;
-	   32'h5c: instruction = 32'h00000033;
-	   32'h60: instruction = 32'h00000033;
-	   32'h64: instruction = 32'h00000033;
-	   32'h68: instruction = 32'h40940433;
-	   32'h6c: instruction = 32'hfc0006e3;
-	   32'h70: instruction = 32'h00000033;
-	   32'h74: instruction = 32'h00000033;
-       32'h78: instruction = 32'h00000033;
-       32'h7c: instruction = 32'h00000033;
-       32'h80: instruction = 32'h00000033;
-	   32'h84: instruction = 32'h408484b3;
-	   32'h88: instruction = 32'hfa0008e3;
-	   32'h8c: instruction = 32'h00002503;
-	   32'h90: instruction = 32'h00000033;
-	   32'h94: instruction = 32'h00000033;
-       32'h98: instruction = 32'h00000033;
-       32'h9c: instruction = 32'h00000033;
-       32'ha0: instruction = 32'h00000033;
-	   32'ha4: instruction = 32'hf4050ee3;
-	   32'ha8: instruction = 32'h00000033;
-	   32'hac: instruction = 32'h00000033;
-	   32'hb0: instruction = 32'h00000033;
-	   32'hb4: instruction = 32'h00000033;
-       32'hb8: instruction = 32'h00000033;
-       32'hbc: instruction = 32'hfc0008e3;
-	   default: instruction = 32'h00000000;
+	          32'h00: instruction = 32'h00002503;
+              32'h04: instruction = 32'h00000033;
+              32'h08: instruction = 32'h00000033;
+              32'h0c: instruction = 32'h00000033;
+              32'h10: instruction = 32'h00000033;
+              32'h14: instruction = 32'h00000033;
+              32'h18: instruction = 32'hfe0504e3;
+              32'h1c: instruction = 32'h00102403;
+              32'h20: instruction = 32'h00202483;
+              32'h24: instruction = 32'h00000033;
+              32'h28: instruction = 32'h00000033;
+              32'h2c: instruction = 32'h00000033;
+              32'h30: instruction = 32'h00000033;
+              32'h34: instruction = 32'h00000033;
+              32'h38: instruction = 32'h04940a63;
+              32'h3c: instruction = 32'h00000033;
+              32'h40: instruction = 32'h00000033;
+              32'h44: instruction = 32'h00000033;
+              32'h48: instruction = 32'h00000033;
+              32'h4c: instruction = 32'h00000033;
+              32'h50: instruction = 32'h02944a63;
+              32'h54: instruction = 32'h00000033;
+              32'h58: instruction = 32'h00000033;
+              32'h5c: instruction = 32'h00000033;
+              32'h60: instruction = 32'h00000033;
+              32'h64: instruction = 32'h00000033;
+              32'h68: instruction = 32'h40940433;
+              32'h6c: instruction = 32'hfc0006e3;
+              32'h70: instruction = 32'h00000033;
+              32'h74: instruction = 32'h00000033;
+              32'h78: instruction = 32'h00000033;
+              32'h7c: instruction = 32'h00000033;
+              32'h80: instruction = 32'h00000033;
+              32'h84: instruction = 32'h408484b3;
+              32'h88: instruction = 32'hfa0008e3;
+              32'h8c: instruction = 32'h00002503;
+              32'h90: instruction = 32'h00000033;
+              32'h94: instruction = 32'h00000033;
+              32'h98: instruction = 32'h00000033;
+              32'h9c: instruction = 32'h00000033;
+              32'ha0: instruction = 32'h00000033;
+              32'ha4: instruction = 32'hf4050ee3;
+              32'ha8: instruction = 32'h00000033;
+              32'hac: instruction = 32'h00000033;
+              32'hb0: instruction = 32'h00000033;
+              32'hb4: instruction = 32'h00000033;
+              32'hb8: instruction = 32'h00000033;
+              32'hbc: instruction = 32'hfc0008e3;
+              default: instruction = 32'h00000000;
 	   endcase
 	end
 endmodule
@@ -613,7 +613,7 @@ MemRead,output reg [3:0] ALU_Sel,output [1:0] immsrc,output reg [1:0] ResultSrc,
     end
     always @(opcode or func3 or func7)
     begin
-        case({opcode,func3,func7})
+        casex({opcode,func3,func7})
             17'b01100110000000000: ALU_Sel = 4'b0000; // ADD
             17'b0010011000xxxxxxx: ALU_Sel = 4'b0000; // ADDI
             17'b01100110000100000: ALU_Sel = 4'b0001; // SUB
@@ -639,7 +639,7 @@ module CompareAndBranch(input [31:0] Port_A,input [31:0] Port_B,input [2:0] inst
     assign neg_flag = temp[31];
     always @(*)
     begin
-        case({instr_type,func3})
+        casex({instr_type,func3})
             6'b011xxx: PCSrc = 1;   //J type instruction
             6'b010000: PCSrc = zero_flag; //BEQ
             6'b010001: PCSrc = ~zero_flag; //BNE
